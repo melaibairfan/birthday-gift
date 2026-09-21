@@ -1,0 +1,713 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Happy Birthday Faizzy G 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: "Segoe UI", sans-serif;
+      color: white;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 20% 20%, #5d1b72 0%, transparent 30%),
+        radial-gradient(circle at 80% 80%, #3d175f 0%, transparent 30%),
+        linear-gradient(135deg, #0c0615, #21102f, #100719);
+    }
+
+    /* Stars */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .star {
+      position: absolute;
+      color: #fff;
+      font-size: 12px;
+      animation: twinkle 2s infinite alternate;
+      opacity: 0.7;
+    }
+
+    .star:nth-child(1) { left: 8%; top: 15%; animation-delay: 0s; }
+    .star:nth-child(2) { left: 20%; top: 70%; animation-delay: .5s; }
+    .star:nth-child(3) { left: 35%; top: 25%; animation-delay: 1s; }
+    .star:nth-child(4) { left: 55%; top: 12%; animation-delay: .3s; }
+    .star:nth-child(5) { left: 72%; top: 35%; animation-delay: .8s; }
+    .star:nth-child(6) { left: 88%; top: 18%; animation-delay: 1.2s; }
+    .star:nth-child(7) { left: 92%; top: 70%; animation-delay: .4s; }
+    .star:nth-child(8) { left: 45%; top: 85%; animation-delay: 1s; }
+
+    @keyframes twinkle {
+      from { opacity: .2; transform: scale(.7); }
+      to { opacity: 1; transform: scale(1.4); }
+    }
+
+    /* Main */
+    .container {
+      position: relative;
+      z-index: 5;
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      padding: 70px 20px;
+      animation: fadeIn 1.8s ease;
+    }
+
+    .small-title {
+      color: #eab8ff;
+      letter-spacing: 5px;
+      font-size: 0.8rem;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1.1;
+      margin-bottom: 15px;
+      color: #ffd5f4;
+      text-shadow:
+        0 0 10px #ff72c6,
+        0 0 30px #ff3cae,
+        0 0 60px #a855f7;
+    }
+
+    .name {
+      color: #ff8bd4;
+    }
+
+    .intro {
+      max-width: 650px;
+      margin: auto;
+      color: #e8d4eb;
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    /* Cake */
+    .cake-area {
+      margin: 60px auto 35px;
+      position: relative;
+      width: 280px;
+      height: 250px;
+    }
+
+    .cake-glow {
+      position: absolute;
+      width: 260px;
+      height: 80px;
+      left: 10px;
+      bottom: 20px;
+      background: #ff4db8;
+      filter: blur(50px);
+      opacity: .25;
+    }
+
+    .cake {
+      position: absolute;
+      width: 240px;
+      height: 180px;
+      left: 20px;
+      top: 45px;
+    }
+
+    .cake-top {
+      position: absolute;
+      width: 220px;
+      height: 50px;
+      left: 10px;
+      top: 50px;
+      background: linear-gradient(135deg, #ffb0d9, #ff75bb);
+      border-radius: 50%;
+      z-index: 4;
+      box-shadow: 0 8px 0 #d94b91, 0 0 25px rgba(255, 111, 188, .5);
+    }
+
+    .cake-body {
+      position: absolute;
+      width: 220px;
+      height: 90px;
+      left: 10px;
+      top: 72px;
+      background: linear-gradient(#ff91c8, #d94c91);
+      border-radius: 0 0 22px 22px;
+      z-index: 2;
+      box-shadow: inset 0 -10px 20px rgba(100, 0, 60, .15);
+    }
+
+    .cream {
+      position: absolute;
+      width: 220px;
+      height: 28px;
+      left: 10px;
+      top: 70px;
+      background: #fff5fc;
+      border-radius: 0 0 50% 50%;
+      z-index: 5;
+    }
+
+    .cream::before,
+    .cream::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #fff5fc;
+      border-radius: 50%;
+      bottom: -8px;
+    }
+
+    .cream::before {
+      left: 45px;
+    }
+
+    .cream::after {
+      right: 45px;
+    }
+
+    /* Cherries */
+    .cherry {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      background: #ff335f;
+      border-radius: 50%;
+      top: 52px;
+      z-index: 7;
+      box-shadow: 0 0 15px #ff335f;
+    }
+
+    .cherry.one { left: 55px; }
+    .cherry.two { left: 111px; }
+    .cherry.three { left: 167px; }
+
+    /* Candles */
+    .candle {
+      position: absolute;
+      width: 13px;
+      height: 48px;
+      top: 5px;
+      background: repeating-linear-gradient(
+        45deg,
+        #ffffff 0px,
+        #ffffff 6px,
+        #ff69b4 6px,
+        #ff69b4 12px
+      );
+      border-radius: 6px;
+      z-index: 6;
+    }
+
+    .candle.one { left: 67px; }
+    .candle.two { left: 114px; }
+    .candle.three { left: 161px; }
+
+    .flame {
+      position: absolute;
+      width: 18px;
+      height: 27px;
+      background: linear-gradient(#fff27a, #ff9d00);
+      border-radius: 50% 50% 50% 50%;
+      top: -27px;
+      left: -2px;
+      box-shadow:
+        0 0 10px #ffd000,
+        0 0 25px #ff9d00;
+      animation: flicker .5s infinite alternate;
+    }
+
+    @keyframes flicker {
+      from {
+        transform: scale(1) rotate(-4deg);
+      }
+      to {
+        transform: scale(1.18) rotate(4deg);
+      }
+    }
+
+    /* Button */
+    .wish-btn {
+      border: none;
+      padding: 15px 35px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #ff4fb8, #a855f7);
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow:
+        0 8px 25px rgba(255, 70, 190, .35),
+        0 0 20px rgba(168, 85, 247, .25);
+      transition: .3s;
+    }
+
+    .wish-btn:hover {
+      transform: scale(1.08);
+      box-shadow:
+        0 12px 35px rgba(255, 70, 190, .55),
+        0 0 30px rgba(168, 85, 247, .4);
+    }
+
+    /* Wish */
+    .wish {
+      display: none;
+      margin: 30px auto;
+      color: #ffd7ef;
+      font-size: 1.25rem;
+      line-height: 1.8;
+      animation: pop .8s ease;
+    }
+
+    /* Message Card */
+    .message-card {
+      margin: 70px auto 30px;
+      max-width: 750px;
+      padding: 40px 35px;
+      border-radius: 25px;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.12);
+      backdrop-filter: blur(15px);
+      box-shadow:
+        0 20px 60px rgba(0,0,0,.35),
+        inset 0 0 30px rgba(255,255,255,.03);
+      text-align: left;
+    }
+
+    .message-card h2 {
+      text-align: center;
+      color: #ffb7df;
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-shadow: 0 0 15px #ff4fc3;
+    }
+
+    .message-card p {
+      color: #eaddeb;
+      font-size: 1.05rem;
+      line-height: 2;
+      margin-bottom: 16px;
+    }
+
+    .highlight {
+      color: #ff9bd6;
+      font-weight: 600;
+    }
+
+    .signature {
+      text-align: right;
+      color: #ffb9df;
+      margin-top: 25px;
+      font-style: italic;
+    }
+
+    /* Balloons */
+    .balloon {
+      position: fixed;
+      bottom: -150px;
+      font-size: 55px;
+      z-index: 1;
+      animation: balloonFloat 12s linear infinite;
+      opacity: .8;
+    }
+
+    .balloon:nth-child(1) {
+      left: 3%;
+      animation-delay: 0s;
+    }
+
+    .balloon:nth-child(2) {
+      left: 17%;
+      animation-delay: 4s;
+    }
+
+    .balloon:nth-child(3) {
+      right: 17%;
+      animation-delay: 2s;
+    }
+
+    .balloon:nth-child(4) {
+      right: 3%;
+      animation-delay: 6s;
+    }
+
+    @keyframes balloonFloat {
+      from {
+        transform: translateY(0) rotate(-5deg);
+      }
+
+      to {
+        transform: translateY(-125vh) rotate(8deg);
+      }
+    }
+
+    /* Hearts */
+    .heart {
+      position: fixed;
+      bottom: -40px;
+      font-size: 22px;
+      z-index: 2;
+      animation: floatHeart 7s linear infinite;
+      opacity: .75;
+    }
+
+    .heart:nth-of-type(1) {
+      left: 12%;
+      animation-delay: 1s;
+    }
+
+    .heart:nth-of-type(2) {
+      left: 35%;
+      animation-delay: 3s;
+    }
+
+    .heart:nth-of-type(3) {
+      left: 65%;
+      animation-delay: 0s;
+    }
+
+    .heart:nth-of-type(4) {
+      left: 88%;
+      animation-delay: 4s;
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 1;
+      }
+
+      to {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      color: #a995b1;
+      font-size: .85rem;
+      padding-bottom: 30px;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(35px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pop {
+      0% {
+        transform: scale(.5);
+        opacity: 0;
+      }
+
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 50px 15px;
+      }
+
+      .message-card {
+        padding: 30px 22px;
+      }
+
+      .message-card p {
+        font-size: .98rem;
+        line-height: 1.8;
+      }
+
+      .cake-area {
+        transform: scale(.9);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Stars -->
+  <div class="stars">
+    <div class="star">✦</div>
+    <div class="star">✧</div>
+    <div class="star">⋆</div>
+    <div class="star">✦</div>
+    <div class="star">✧</div>
+    <div class="star">⋆</div>
+    <div class="star">✦</div>
+    <div class="star">✧</div>
+  </div>
+
+  <!-- Floating Balloons -->
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+  <div class="balloon">🎈</div>
+
+  <!-- Floating Hearts -->
+  <div class="heart">💗</div>
+  <div class="heart">💖</div>
+  <div class="heart">💕</div>
+  <div class="heart">💗</div>
+
+
+  <main class="container">
+
+    <div class="small-title">
+      A Little Birthday Surprise ✨
+    </div>
+
+    <h1>
+      🎉 Happy Birthday <br>
+      <span class="name">Faizzy G</span> 🎂
+    </h1>
+
+    <p class="intro">
+      Today is all about celebrating you, your smile,
+      your presence and all the little moments that make
+      you special. 💗
+    </p>
+
+
+    <!-- Cake -->
+    <div class="cake-area">
+
+      <div class="cake-glow"></div>
+
+      <div class="cake">
+
+        <div class="candle one">
+          <div class="flame"></div>
+        </div>
+
+        <div class="candle two">
+          <div class="flame"></div>
+        </div>
+
+        <div class="candle three">
+          <div class="flame"></div>
+        </div>
+
+        <div class="cake-top"></div>
+        <div class="cream"></div>
+        <div class="cake-body"></div>
+
+        <div class="cherry one"></div>
+        <div class="cherry two"></div>
+        <div class="cherry three"></div>
+
+      </div>
+    </div>
+
+
+    <!-- Wish Button -->
+    <button class="wish-btn" onclick="makeWish()">
+      🎂 Make a Wish ✨
+    </button>
+
+
+    <!-- Hidden Wish -->
+    <div class="wish" id="wish">
+
+      🌟 May all your wishes come true! 🌟
+      <br>
+
+      May this year bring you countless reasons
+      to smile, peace in your heart and beautiful
+      memories to keep. 💖
+
+      <br><br>
+
+      🎂 Happy Birthday once again, Faizzy G! 🎂
+
+    </div>
+
+
+    <!-- Personal Message -->
+    <section class="message-card">
+
+      <h2>
+        💌 A Special Message For You
+      </h2>
+
+      <p>
+        <span class="highlight">HAPPY BIRTHDAY FAIZZY G..... 🎉💗</span>
+      </p>
+
+      <p>
+        We met through screens & words without knowing
+        how important you would become.
+      </p>
+
+      <p>
+        No shared places, no familiar faces,
+        just conversations that slowly turned into comfort.
+      </p>
+
+      <p>
+        Even with the distance, there's a sense of
+        connection that feels real.
+      </p>
+
+      <p>
+        A reminder that friendship doesn't need daily
+        meetings, just honesty, respect & a little care.
+      </p>
+
+      <p>
+        Thanks a lot for your time, yapping,
+        random talks and all those little conversations
+        that somehow became special. 🫶🏻
+      </p>
+
+      <p>
+        I hope your birthday is as wonderful as the
+        memories and smiles you bring along. ✨
+      </p>
+
+      <div class="signature">
+        Once again... Happy Birthday, Faizzy G! 🎂💖
+      </div>
+
+    </section>
+
+
+    <footer>
+      Made with 💗, a little craziness & lots of good wishes ✨
+    </footer>
+
+  </main>
+
+
+  <script>
+
+    function makeWish() {
+
+      /* Turn off candles */
+      const flames = document.querySelectorAll(".flame");
+
+      flames.forEach(flame => {
+        flame.style.display = "none";
+      });
+
+
+      /* Show birthday wish */
+      document.getElementById("wish").style.display = "block";
+
+
+      /* Confetti */
+      const emojis = [
+        "🎉",
+        "✨",
+        "💖",
+        "🎈",
+        "🌸",
+        "💗",
+        "⭐",
+        "🥳",
+        "🎂"
+      ];
+
+
+      for (let i = 0; i < 80; i++) {
+
+        const confetti = document.createElement("div");
+
+        confetti.innerHTML =
+          emojis[Math.floor(Math.random() * emojis.length)];
+
+        confetti.style.position = "fixed";
+
+        confetti.style.left =
+          Math.random() * 100 + "vw";
+
+        confetti.style.top = "-30px";
+
+        confetti.style.fontSize =
+          16 + Math.random() * 18 + "px";
+
+        confetti.style.zIndex = "9999";
+
+        confetti.style.pointerEvents = "none";
+
+        confetti.style.animation =
+          `fall ${2 + Math.random() * 4}s linear forwards`;
+
+        document.body.appendChild(confetti);
+
+
+        setTimeout(() => {
+          confetti.remove();
+        }, 6500);
+
+      }
+
+    }
+
+
+    /* Confetti Animation */
+    const style = document.createElement("style");
+
+    style.innerHTML = `
+
+      @keyframes fall {
+
+        0% {
+          transform:
+            translateY(0)
+            rotate(0deg);
+          opacity: 1;
+        }
+
+        100% {
+          transform:
+            translateY(110vh)
+            rotate(720deg);
+          opacity: 0;
+        }
+
+      }
+
+    `;
+
+    document.head.appendChild(style);
+
+  </script>
+
+</body>
+</html>
+```
